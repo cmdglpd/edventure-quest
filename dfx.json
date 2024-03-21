@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "edventure_quest_backend": {
+      "main": "src/edventure_quest_backend/main.mo",
+      "type": "motoko"
+    },
+    "edventure_quest_frontend": {
+      "dependencies": [
+        "edventure_quest_backend"
+      ],
+      "source": [
+        "src/edventure_quest_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "edventure_quest_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
