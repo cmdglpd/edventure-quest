@@ -22,8 +22,9 @@ export default function DrawerButtons({ buttons }) {
                 style={({ isActive, isPending, isTransitioning }) => {
                   return {
                     fontWeight: isActive ? "bold" : "",
-                    color: isActive ? colors.primary : "white",
+                    color: "white",
                     backgroundColor: isActive ? colors.navBackground : "",
+                    borderLeft: isActive ? `4px solid ${colors.secondary}` : ""
                   };
                 }}
                 className="w-full px-4 py-3 rounded-sm flex gap-8 items-center"

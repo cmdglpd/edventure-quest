@@ -3,6 +3,7 @@ import {
     CardActions,
     CardContent,
     Button,
+    Avatar,
     Typography,
     Box,
     Divider,
@@ -18,51 +19,30 @@ const questColors = {
     hard: colors.hardQuest
 }
 
-export default function SoloQuestCard({ questName, difficulty, description, points, status, isDaily }) {
+export default function GuildPost({ owner, date, content, image }) {
     return (
-        <Card elevation={0} sx={{ borderRadius: 3 }}>
+        <Card elevation={0} sx={{ borderRadius: {xs: 0, md: 3} }}>
             <CardContent
                 sx={{
                     display: "flex",
-                    gap: "1rem",
+                    gap: "0.75rem",
                     alignItems: "center",
                     px: "1rem",
                 }}
             >
-                <Card
-                    variant="outlined"
-                    sx={{
-                        p: "1rem",
-                        width: "4rem",
-                        height: "4rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        backgroundImage: `linear-gradient(${questColors[isDaily ? "daily" : difficulty.toLowerCase()]}, #111111)`,
-                        borderColor: "#111111",
-                        borderRadius: 3,
-                    }}
-                >
-                    <p className="text-lg font-bold text-white">
-                        {points}
-                    </p>
-                    <p className="text-xs text-white">
-                        POINTS
-                    </p>
-                </Card>
+                <Avatar sx={{ width: 40, height: 40 }} src={image} />
                 <Box>
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         sx={{ fontWeight: "bold", textAlign: "left" }}
                     >
-                        {questName}
+                        {owner}
                     </Typography>
-                    <Typography variant="body2">Difficulty: {difficulty}</Typography>
+                    <Typography variant="caption">{date}</Typography>
                 </Box>
             </CardContent>
             <CardContent sx={{ py: "0", px: "1rem", mb: "1rem" }}>
-                <Typography sx={{ textAlign: "left" }}>{description}</Typography>
+                <Typography sx={{ textAlign: "left" }}>{content}</Typography>
             </CardContent>
 
             <Divider />
@@ -74,15 +54,6 @@ export default function SoloQuestCard({ questName, difficulty, description, poin
                     gap: "0.25rem",
                 }}
             >
-                {status && (
-                    <Typography
-                        variant="subtitle2"
-                        sx={{ fontStyle: "italic", mr: "auto", color: "gray" }}
-                    >
-                        Completed
-                    </Typography>
-                )}
-
                 <Button
                     size="small"
                     variant="text"
@@ -98,7 +69,25 @@ export default function SoloQuestCard({ questName, difficulty, description, poin
                             color: "white"
                         }}
                     >
-                        Details
+                        Like
+                    </p>
+                </Button>
+                <Button
+                    size="small"
+                    variant="text"
+                    startIcon={<ModeCommentOutlinedIcon sx={{ color: colors.primary }} />}
+                    sx={{
+                        ml: "auto",
+                    }}
+                >
+                    <p
+                        variant="body2"
+                        style={{
+                            fontWeight: "bold",
+                            color: "white"
+                        }}
+                    >
+                        Comment
                     </p>
                 </Button>
             </CardActions>

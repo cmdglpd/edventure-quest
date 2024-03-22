@@ -5,6 +5,7 @@ import SoloQuestPage from "../pages/quests/SoloQuestPage";
 import ShopPage from "../pages/shop/ShopPage"
 import SkillPage from "../pages/shop/SkillPage";
 import ItemPage from "../pages/shop/ItemPage";
+import GuildPage from "../pages/guild/GuildPage";
 
 const soloQuests = {
   path: "/solo-quests",
@@ -21,10 +22,10 @@ const items = {
   element: <ItemPage />,
 };
 
-// const savedEvents = {
-//   path: "/saved-events",
-//   element: <SavedEventsPage />,
-// };
+const guild = {
+  path: "/guild",
+  element: <GuildPage />,
+};
 
 // const communities = {
 //   path: "/communities",
@@ -70,7 +71,7 @@ const shop = {
 const home = {
   path: "/",
   element: <HomePage />,
-  children: [soloQuests, shop]
+  children: [soloQuests, shop, guild]
 };
 
 // const root = {

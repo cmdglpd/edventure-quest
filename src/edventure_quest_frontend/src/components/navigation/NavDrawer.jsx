@@ -50,7 +50,7 @@ const drawerButtons = [
       {
         name: "Home",
         icon: <CottageIcon />,
-        path: "/",
+        path: "/guild",
         users: ["guild member", "guildmaster"],
       },
       {
