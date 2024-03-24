@@ -5,7 +5,7 @@ import colors from "../../utils/colors";
 export default function HomePage({}) {
   return (
     <>
-      <Box component="div" sx={{backgroundColor: colors.secondaryBackground }}>
+      <Box component="div">
         <Outlet />
       </Box>
     </>

@@ -1,6 +1,6 @@
-import { Box, Avatar, Typography, Divider, Button } from "@mui/material";
+import { Box, Avatar, Typography, Divider, Button, TextField } from "@mui/material";
 
-export default function DefaultHeader({ title, subtitle, icon, description, buttons, backgroundImg }) {
+export default function SoloQuestHeader({ title, subtitle, icon, description, buttons, backgroundImg }) {
 
     return (
         <Box
@@ -8,6 +8,8 @@ export default function DefaultHeader({ title, subtitle, icon, description, butt
             sx={{
                 color: "white",
                 px: { md: "1rem", lg: "3rem" },
+                pt: "1rem",
+                pb: "1.5rem",
                 backgroundImage: `url(${backgroundImg})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover"
@@ -54,32 +56,21 @@ export default function DefaultHeader({ title, subtitle, icon, description, butt
             >
                 <Typography variant="body1" sx={{ textAlign: "left" }}>{description}</Typography>
             </Box>
-            <Divider />
             <Box
                 component="div"
                 sx={{
                     display: "flex",
                     alignItems: "center",
                     px: "1rem",
-                    py: "0.5rem",
+                    py: "0.75rem",
+                    mx: "1rem",
+                    gap: 2,
+                    bgcolor: "rgba(17,17,17,0.5)",
+                    borderRadius: 3,
                 }}
             >
-                {buttons.map((btn) => (
-                    <Box
-                        key={Math.random()}
-                        sx={{ width: "inherit"  }}
-                    >
-                        <Button
-                            sx={{ color: "white"}}
-                            size="small"
-                            variant="text"
-                            startIcon={btn.icon}
-                            onClick={btn.func}
-                        >
-                            {btn.name}
-                        </Button>
-                    </Box>
-                ))}
+                <TextField size="small" fullWidth variant="standard" placeholder="Type in something..." />
+                <Button variant="outlined" size="small" sx={{flexGrow: 1}}>Search</Button>
             </Box>
         </Box>
     );

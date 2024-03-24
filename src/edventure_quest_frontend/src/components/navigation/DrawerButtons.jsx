@@ -23,7 +23,7 @@ export default function DrawerButtons({ buttons }) {
                   return {
                     fontWeight: isActive ? "bold" : "",
                     color: "white",
-                    backgroundColor: isActive ? colors.navBackground : "",
+                    backgroundColor: "transparent",
                     borderLeft: isActive ? `4px solid ${colors.secondary}` : ""
                   };
                 }}

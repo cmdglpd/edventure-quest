@@ -166,8 +166,7 @@ export default function NavDrawer({ children }) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+    <Box sx={{display: "flex"}}>
       <AppBar
         elevation={0}
         variant="outlined"

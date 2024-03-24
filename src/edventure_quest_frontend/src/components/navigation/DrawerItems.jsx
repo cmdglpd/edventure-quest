@@ -16,7 +16,7 @@ export default function DrawerItems({
   gift
 }) {
   return (
-    <Box sx={{ padding: "0.5rem", overflow: "auto" }} role="presentation">
+    <Box component="div" sx={{ padding: "0.5rem", overflow: "auto" }} role="presentation">
       <ProfileCard />
 
       <Divider />

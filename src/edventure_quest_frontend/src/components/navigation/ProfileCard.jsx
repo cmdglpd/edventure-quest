@@ -7,23 +7,17 @@ import {
   ListItemButton,
   LinearProgress
 } from "@mui/material";
-
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
-
-import { UserContext } from "../../providers/UserProvider";
+import { NavLink } from "react-router-dom"
 import colors from "../../utils/colors";
 
 export default function ProfileCard({ }) {
-  const currentUser = useContext(UserContext);
-  const profilePagePath = `/profile/${currentUser?.userId}`;
-
+  const currentUser = null
   return (
     <>
       <Card
         elevation={0}
         sx={{
-          backgroundColor: colors.navBackground,
+          backgroundColor: colors.background,
           mb: "0.5rem",
         }}
       >
@@ -48,7 +42,7 @@ export default function ProfileCard({ }) {
           title={
             <ListItem disablePadding>
               <ListItemButton sx={{ p: 0 }}>
-                <NavLink to={profilePagePath}>
+                <NavLink to={"/"}>
                   <p className="font-bold">{currentUser ? currentUser?.name : "Azazel Bloodfallen"}</p>
                 </NavLink>
               </ListItemButton>

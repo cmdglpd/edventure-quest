@@ -48,7 +48,7 @@ export default function ShopPage({ }) {
         ]
     }
 
-    return <Box component="div" sx={{ backgroundColor: colors.secondaryBackground, pb: "2rem" }}>
+    return <Box component="div" sx={{ backgroundColor: "transparent", pb: "2rem" }}>
         <DefaultHeader
             title={header.title}
             subtitle={header.subtitle}
