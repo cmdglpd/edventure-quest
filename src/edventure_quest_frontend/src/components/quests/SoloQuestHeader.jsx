@@ -1,6 +1,6 @@
 import { Box, Avatar, Typography, Divider, Button, TextField } from "@mui/material";
 
-export default function SoloQuestHeader({ title, subtitle, icon, description, buttons, backgroundImg }) {
+export default function SoloQuestHeader({ title, subtitle, icon, description, backgroundImg }) {
 
     return (
         <Box
@@ -54,7 +54,7 @@ export default function SoloQuestHeader({ title, subtitle, icon, description, bu
                     mb: "1rem",
                 }}
             >
-                <Typography variant="body1" sx={{ textAlign: "left" }}>{description}</Typography>
+                <Typography variant="body2" sx={{ textAlign: "left" }}>{description}</Typography>
             </Box>
             <Box
                 component="div"
@@ -65,7 +65,7 @@ export default function SoloQuestHeader({ title, subtitle, icon, description, bu
                     py: "0.75rem",
                     mx: "1rem",
                     gap: 2,
-                    bgcolor: "rgba(17,17,17,0.5)",
+                    bgcolor: "rgba(7,7,7,0.5)",
                     borderRadius: 3,
                 }}
             >

@@ -222,6 +222,7 @@ export default function NavDrawer({ children }) {
             boxSizing: "border-box",
           },
           display: { xs: "none", md: "flex" },
+          bgcolor: "rgba(7,7,7,0.5)"
         }}
       >
         <Toolbar />
@@ -243,6 +244,7 @@ export default function NavDrawer({ children }) {
             boxSizing: "border-box",
           },
           display: { xs: "flex", md: "none" },
+          bgcolor: "rgba(7,7,7,0.75)"
         }}
       >
         <Toolbar />

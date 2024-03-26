@@ -6,11 +6,18 @@ import ShopPage from "../pages/shop/ShopPage"
 import SkillPage from "../pages/shop/SkillPage";
 import ItemPage from "../pages/shop/ItemPage";
 import GuildPage from "../pages/guild/GuildPage";
+import CategoriesPage from "../pages/quests/CategoriesPage";
+import SingleCategoryPage from "../pages/quests/SingleCategoryPage";
 
-const soloQuests = {
+const categories = {
   path: "/solo-quests",
-  element: <SoloQuestPage />,
-};
+  element: <CategoriesPage />
+}
+
+const questList = {
+  path: "/solo-quests/quests",
+  element: <SingleCategoryPage />
+}
 
 const skills = {
   path: "/shop/gifts",
@@ -67,6 +74,13 @@ const shop = {
   element: <ShopPage />,
   children: [skills, items]
 };
+
+const soloQuests = {
+  path: "/solo-quests",
+  element: <SoloQuestPage />,
+  children: [categories, questList]
+};
+
 
 const home = {
   path: "/",

@@ -7,9 +7,10 @@ export default {
     hardQuest: "#B81919",
     error: "#FF1E1E",
     errorBackground: "#FFEBEB",
-    background: "#111111",
+    background: "#070707",
     secondaryBackground: "#181818",
     navBackground: "#1A1A1A",
+    whiteTextContrast: "#CFCFCF",
     divider: {
         light: "#D2D2D2",
         dark: "#515151"

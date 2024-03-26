@@ -9,7 +9,7 @@ import {
     Divider,
 } from "@mui/material";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
-
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import colors from "../../utils/colors";
 
 const questColors = {
@@ -19,9 +19,9 @@ const questColors = {
     hard: colors.hardQuest
 }
 
-export default function GuildPost({ owner, date, content, image }) {
+export default function GuildPost({ owner, date, content, image, contentImage }) {
     return (
-        <Card elevation={0} sx={{ borderRadius: {xs: 0, md: 3} }}>
+        <Card elevation={0} sx={{ bgcolor: "rgba(7,7,7,0.5)", borderRadius: { xs: 0, md: 3 } }}>
             <CardContent
                 sx={{
                     display: "flex",
@@ -42,7 +42,8 @@ export default function GuildPost({ owner, date, content, image }) {
                 </Box>
             </CardContent>
             <CardContent sx={{ py: "0", px: "1rem", mb: "1rem" }}>
-                <Typography sx={{ textAlign: "left" }}>{content}</Typography>
+                <Typography variant="body2" sx={{ textAlign: "left" }}>{content}</Typography>
+                {contentImage && <img src={contentImage} style={{ width: "100%", marginTop: "1rem", borderRadius: "10px" }} />}
             </CardContent>
 
             <Divider />
@@ -57,7 +58,7 @@ export default function GuildPost({ owner, date, content, image }) {
                 <Button
                     size="small"
                     variant="text"
-                    startIcon={<ModeCommentOutlinedIcon sx={{ color: colors.primary }} />}
+                    startIcon={<ThumbUpOutlinedIcon sx={{ color: "white" }} />}
                     sx={{
                         ml: "auto",
                     }}
@@ -75,7 +76,7 @@ export default function GuildPost({ owner, date, content, image }) {
                 <Button
                     size="small"
                     variant="text"
-                    startIcon={<ModeCommentOutlinedIcon sx={{ color: colors.primary }} />}
+                    startIcon={<ModeCommentOutlinedIcon sx={{ color: "white" }} />}
                     sx={{
                         ml: "auto",
                     }}

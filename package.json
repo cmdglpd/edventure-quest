@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/edventure_quest_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.169",
+    "@mui/material": "^5.15.14"
+  }
 }

@@ -1,85 +1,93 @@
-import {
-    Card,
-    CardContent,
-    Box,
-    Button,
-    Typography,
-    Avatar,
-    Divider,
-} from "@mui/material";
-import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-
+import { Card, Box, Avatar, Typography, Divider, Button, TextField } from "@mui/material";
 import colors from "../../utils/colors";
 
-export default function GuildHeader({
-    name,
-    description,
-    image,
-    memberCount,
-}) {
+export default function GuildHeader({ title, subtitle, icon, description, backgroundImg }) {
 
     return (
-        <Card
-            elevation={0}
-            sx={{ borderRadius: 0 }}
+        <Box
+            component="div"
+            sx={{
+                color: "white",
+                px: { md: "1rem", lg: "3rem" },
+                pt: "1rem",
+                pb: "1.5rem",
+                backgroundImage: `url(${backgroundImg})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover"
+            }}
         >
-            <Card
-                elevation={0}
+            <Box
+                component="div"
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    p: "1rem",
+                }}
+            >
+                <Avatar sx={{ width: 50, height: 50 }} src={icon} alt="avatar" />
+                <div>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            display: { xs: "flex", md: "none" },
+                            fontWeight: "bold",
+                            textAlign: "left",
+                        }}
+                    >
+                        {`${title} Guild`}
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        sx={{ display: { xs: "none", md: "flex" }, fontWeight: "bold", textAlign: "left" }}
+                    >
+                        {`${title} Guild`}
+                    </Typography>
+                    <Typography variant="subtitle2" sx={{ textAlign: "left" }}>
+                        {subtitle}
+                    </Typography>
+                </div>
+            </Box>
+            <Box
+                component="div"
+                sx={{
+                    px: "1rem",
+                    mb: "1rem",
+                }}
+            >
+                <Typography variant="body2" sx={{ textAlign: "left" }}>{description}</Typography>
+            </Box>
+
+            <Divider/>
+            <Box
+                component="div"
                 sx={{
                     display: "flex",
                     alignItems: "center",
                     width: "100%",
-                    height: "200px",
-                    overflow: "hidden",
-                    borderRadius: 0,
+                    gap: 2,
+                    px: "1rem",
+                    mt: "1rem"
                 }}
             >
-                <img src={image} alt="poster" style={{ width: "100%" }} />
-            </Card>
-            <CardContent sx={{ mx: { xs: 0, lg: "3rem" } }}>
-                <div className="flex gap-5">
-                    <div className="p-1 border-2 rounded-full">
-                        <Avatar sx={{ width: 50, height: 50 }} src={image} alt="avatar" />
-                    </div>
-                    <div>
-                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                            {name}
-                        </Typography>
-                        <Typography variant="body2">{memberCount} guild members</Typography>
-                    </div>
-                </div>
-                <Typography sx={{ my: "1rem" }}>{description}</Typography>
-            </CardContent>
-            <Divider />
-            <div className={`bg-[${colors.secondaryBackground}] mx-[1rem] md:mx-4 lg:mx-16 my-3 flex flex-col gap-3`}>
-                <Box
-                    component="div"
+                <Avatar src={""} />
+                <Card
+                    variant="outlined"
                     sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        width: "100%",
-                        gap: 2
+                        py: "0.5rem",
+                        px: "1rem",
+                        borderRadius: 10,
+                        bgcolor: "rgba(7, 7, 7, 0.5)",
+                        border: "none",
+                        flexGrow: 1,
+                        display: 'flex',
+                        alignItems: 'center',
                     }}
                 >
-                    <Avatar src={""} />
-                    <Card
-                        variant="outlined"
-                        sx={{
-                            py: "0.5rem",
-                            px: "1rem",
-                            borderRadius: 10,
-                            bgcolor: colors.navBackground,
-                            border: "none",
-                            flexGrow: 1,
-                            display: 'flex',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <Typography>Write a post...</Typography>
-                    </Card>
-                </Box>
-            </div>
-
-        </Card>
+                    <Typography>Write a post...</Typography>
+                </Card>
+            </Box>
+        </Box>
     );
 }
+
