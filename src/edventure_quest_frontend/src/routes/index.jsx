@@ -1,97 +1,31 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
 import HomePage from "../pages/home/HomePage";
-import SoloQuestPage from "../pages/quests/SoloQuestPage";
-import ShopPage from "../pages/shop/ShopPage"
-import SkillPage from "../pages/shop/SkillPage";
-import ItemPage from "../pages/shop/ItemPage";
-import GuildPage from "../pages/guild/GuildPage";
-import CategoriesPage from "../pages/quests/CategoriesPage";
-import SingleCategoryPage from "../pages/quests/SingleCategoryPage";
+import QuestPage from "../pages/quests/QuestPage";
+import StoryQuestPage from "../pages/quests/storyQuests/StoryQuestPage";
+import QuestDetailsPage from "../pages/quests/storyQuests/QuestDetailsPage";
 
-const categories = {
-  path: "/solo-quests",
-  element: <CategoriesPage />
+const soloQuest = {
+  path: "/quests",
+  element: <StoryQuestPage />
 }
 
-const questList = {
-  path: "/solo-quests/quests",
-  element: <SingleCategoryPage />
+const questDetails = {
+  path: "/quests/quest-details",
+  element: <QuestDetailsPage />
 }
 
-const skills = {
-  path: "/shop/gifts",
-  element: <SkillPage />,
-};
-
-const items = {
-  path: "/shop",
-  element: <ItemPage />,
-};
-
-const guild = {
-  path: "/guild",
-  element: <GuildPage />,
-};
-
-// const communities = {
-//   path: "/communities",
-//   element: <CommunitiesPage />,
-// };
-
-// const joinRequests = {
-//   path: "/join-requests/:communityId",
-//   element: <JoinRequestsPage />,
-// };
-
-// const eventDetails = {
-//   path: "/event-details/:communityId/:eventId",
-//   element: <EventDetailsPage />,
-// };
-
-// const communityDetails = {
-//   path: "/community-details/:communityId",
-//   element: <CommunityDetailsPage />,
-// };
-
-// const profile = {
-//   path: "/profile/:userId",
-//   element: <ProfilePage />,
-// };
-
-// const analytics = {
-//   path: "/analytics",
-//   element: <EventAnalytics />,
-// };
-
-// const messages = {
-//   path: "/messages",
-//   element: <MessagesPage />,
-// };
-
-const shop = {
-  path: "/shop",
-  element: <ShopPage />,
-  children: [skills, items]
-};
-
-const soloQuests = {
-  path: "/solo-quests",
-  element: <SoloQuestPage />,
-  children: [categories, questList]
-};
-
+const quests = {
+  path: "/quests",
+  element: <QuestPage />,
+  children: [soloQuest, questDetails]
+}
 
 const home = {
   path: "/",
   element: <HomePage />,
-  children: [soloQuests, shop, guild]
-};
-
-// const root = {
-//   element: <Root />,
-//   children: [home, communities, savedEvents],
-// };
+  children: [quests]
+}
 
 const root = {
   element: <Root />,

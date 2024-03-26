@@ -12,7 +12,7 @@
   /* background-color: #242424; */
   color: white;
   /* background-color: #181818; */
-  background-image: url(./assets/bgImage.png);
+  background-image: url(./assets/bgImage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -23,6 +23,49 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.card-theme-neutral,
+.card-theme-light,
+.card-theme-dark {
+  position: relative;
+  /* Ensure proper positioning of pseudo-element */
+  background-color: #DCB98A;
+  padding: 10px;
+  /* Adjust padding as needed */
+  border-radius: 10px;
+  /* Adjust border-radius as needed */
+}
+
+.card-theme-neutral::before,
+.card-theme-light::before,
+.card-theme-dark::before {
+  content: '';
+  /* Required for pseudo-elements */
+  position: absolute;
+  top: -4px;
+  /* Adjust offset to cover the border width */
+  left: -4px;
+  /* Adjust offset to cover the border width */
+  right: -4px;
+  /* Adjust offset to cover the border width */
+  bottom: -4px;
+  /* Adjust offset to cover the border width */
+  background: linear-gradient(to bottom, #CC9B70, #3E2713);
+  border-radius: inherit;
+  /* Inherit border-radius from the main element */
+  z-index: -1;
+  /* Ensure the pseudo-element stays behind the content */
+}
+
+.card-theme-light {
+  background-color: #E8CFA6;
+}
+
+.card-theme-dark {
+  background-image: linear-gradient(to bottom, #B68962, #503C2B);
+  padding: 10px;
+}
+
 
 /* scrollbar */
 /* width */
