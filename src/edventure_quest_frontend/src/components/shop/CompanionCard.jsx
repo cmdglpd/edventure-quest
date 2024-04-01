@@ -2,6 +2,7 @@ import { Typography, Divider, Button } from "@mui/material"
 import colors from "../../utils/colors"
 import CompanionDialog from "../dialogs/CompanionDialog"
 import { useState } from "react"
+import forestBg from "../../assets/characters/forestBg.png"
 
 export default function CompanionCard({ name, edventurePoints, type, companionImg, description, effect }) {
     const [open, setOpen] = useState(false)
@@ -10,8 +11,8 @@ export default function CompanionCard({ name, edventurePoints, type, companionIm
         <CompanionDialog open={open} handleClose={() => setOpen(false)} name={name} type={type} effect={effect} companionImg={companionImg} description={description} edventurePoints={edventurePoints} />
 
         <div className="card-theme-light flex gap-4">
-            <div className="w-[10rem]">
-                <img src={companionImg} alt="cover image" style={{ width: "100%", height: "6rem", objectFit: "cover", objectPosition: "center", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }} />
+            <div className="w-[10rem] shop-companion-card" style={{  display: "flex", alignItems: "center", justifyContent: "center", height: "6rem", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+                <img src={companionImg} alt="cover image" style={{ height: "90%" }}/>
             </div>
 
             <div className="w-full flex flex-col gap-2">

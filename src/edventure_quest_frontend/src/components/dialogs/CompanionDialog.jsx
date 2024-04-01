@@ -31,8 +31,8 @@ export default function CompanionDialog({ open, handleClose, name, edventurePoin
                 <DialogContent sx={{ position: "relative" }}>
                     <IconButton onClick={handleClose} disabled={loading} size="small" color="brownDark" sx={{ position: "absolute", top: "0.65rem", right: "1rem" }}><CloseRoundedIcon /></IconButton>
                     <div className="flex gap-4">
-                        <div className="w-[10rem]">
-                            <img src={companionImg} alt="cover image" style={{ width: "100%", height: "6rem", objectFit: "cover", objectPosition: "center", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }} />
+                        <div className="w-[10rem] shop-companion-card" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "6rem", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+                            <img src={companionImg} alt="cover image" style={{ height: "90%" }} />
                         </div>
 
                         <div className="w-full flex flex-col gap-2">

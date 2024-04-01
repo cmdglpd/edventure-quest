@@ -29,6 +29,13 @@ input[type="file"] {
   display: none;
 }
 
+.shop-companion-card{
+  background-image: url(./assets/characters/forestBg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .custom-file-upload {
   background-color: #DCB98A;
   display: inline-block;

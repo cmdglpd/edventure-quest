@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import GuildButtons from "../../components/buttons/GuildButtons"
 
-export default function GuildHallPage({ }) {
+export default function GuildsPage({ }) {
     return <div className="w-full flex flex-col gap-4 relative">
         <GuildButtons />
 

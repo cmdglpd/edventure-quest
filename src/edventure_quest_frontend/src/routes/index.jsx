@@ -20,6 +20,12 @@ import CouncilSelectionPage from "../pages/auth/CouncilSelectionPage";
 import AccountInformationPage from "../pages/auth/AccountInformationPage";
 import RoleSelectionPage from "../pages/auth/RoleSelection";
 import GuildSelectionPage from "../pages/auth/GuildSelection";
+import SubmissionsPage from "../pages/quests/storyQuests/SubmissionsPage";
+import GuildsPage from "../pages/guilds/GuildsPage";
+import CouncilLibraryPage from "../pages/guilds/CouncilLibraryPage";
+import GuildListPage from "../pages/guilds/GuildListPage";
+
+// USER ACCOUNTS #############################
 
 const logIn = {
   path: "/login",
@@ -52,6 +58,28 @@ const register = {
   children: [roleSelection, councilSelection, guildSelection, accountInformation]
 }
 
+// ###########################################
+
+
+
+// GUILDS ####################################
+
+const guildList = {
+  path: "/guilds",
+  element: <GuildListPage />
+}
+
+const grandCouncilLibrary = {
+  path: "/guilds/library",
+  element: <CouncilLibraryPage />
+}
+
+const guilds = {
+  path: "/guilds",
+  element: <GuildsPage />,
+  children: [guildList, grandCouncilLibrary]
+}
+
 const guildPosts = {
   path: "/guild-hall",
   element: <GuildPostPage />
@@ -67,6 +95,8 @@ const guildHall = {
   element: <GuildHallPage />,
   children: [guildPosts, library]
 }
+
+// ###########################################
 
 // SHOP ######################################
 const products = {
@@ -103,6 +133,11 @@ const storyQuests = {
   element: <StoryQuestPage />
 }
 
+const submissions = {
+  path: "/quests/story-quest-details/:storyId/:questId/submissions",
+  element: <SubmissionsPage />
+}
+
 const storyQuestDetails = {
   path: "/quests/story-quest-details/:storyId",
   element: <QuestDetailsPage />
@@ -116,7 +151,7 @@ const guildVentures = {
 const quests = {
   path: "/quests",
   element: <QuestPage />,
-  children: [storyQuests, storyQuestDetails, guildVentures]
+  children: [storyQuests, storyQuestDetails, submissions, guildVentures]
 }
 
 // ##########################################
@@ -124,7 +159,7 @@ const quests = {
 const home = {
   path: "/",
   element: <HomePage />,
-  children: [quests, shop, guildHall]
+  children: [quests, shop, guildHall, guilds]
 }
 
 const root = {

@@ -22,7 +22,7 @@ export default function ServicesPage({ }) {
 
         <div className="w-full flex flex-col gap-2 mt-1">
             {services.map((service, index) => {
-                return <ServiceCard key={index} name={service.name} description={service.description} edventurePoints={service.price} serviceImg={image1} />
+                return <ServiceCard key={index} name={service.name} description={service.description} edventurePoints={service.price} serviceImg={service.serviceImage} />
             })}
         </div>
     </div >

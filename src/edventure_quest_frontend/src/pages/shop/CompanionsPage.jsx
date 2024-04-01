@@ -22,7 +22,7 @@ export default function CompanionsPage({ }) {
 
         <div className="w-full flex flex-col gap-2 mt-1">
             {companions.map((companion, index) => {
-                return <CompanionCard key={index} name={companion.name} description={companion.description} effect={companion.effect} type={companion.type} edventurePoints={companion.price} companionImg={image2} />
+                return <CompanionCard key={index} name={companion.name} description={companion.description} effect={companion.effect} type={companion.type} edventurePoints={companion.price} companionImg={companion.companionImage} />
             })}
         </div>
     </div >

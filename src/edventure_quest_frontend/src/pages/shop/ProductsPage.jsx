@@ -22,7 +22,7 @@ export default function ProductsPage({ }) {
 
         <div className="w-full flex flex-col gap-2 mt-1">
             {products.map((product, index) => {
-                return <ProductCard key={index} name={product.name} description={product.description} edventurePoints={product.price} productImg={image1} />
+                return <ProductCard key={index} name={product.name} description={product.description} edventurePoints={product.price} productImg={product.itemImage} />
             })}
         </div>
     </div >

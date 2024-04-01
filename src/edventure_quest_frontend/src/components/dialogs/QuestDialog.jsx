@@ -11,7 +11,6 @@ import {
   Box,
   IconButton
 } from "@mui/material";
-import { validationRules } from "../../utils/validationRules";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import colors from "../../utils/colors";
 import {useState} from "react"
@@ -39,7 +38,7 @@ export default function QuestDialog({ open, handleClose, title, description, edv
           <Divider sx={{ backgroundColor: colors.secondary, mt: "1rem" }} />
 
           <DialogActions sx={{ px: 0, pb: 0, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Typography variant="body2" sx={{ color: colors.tertiary }}>Uploaded File: {selectedFile?.name}</Typography>
+            <Typography variant="body2" sx={{ color: colors.tertiary }}>Selected file: {selectedFile?.name}</Typography>
 
             <form action="">
               <label htmlFor="file-upload" className="custom-file-upload">

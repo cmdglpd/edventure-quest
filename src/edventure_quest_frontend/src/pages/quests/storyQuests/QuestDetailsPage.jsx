@@ -21,11 +21,13 @@ export default function QuestDetailsPage({ }) {
         <StoryQuestHeader title={story.title} type={story.type} description={story.synopsis} />
 
         <div className="w-full flex flex-col gap-2 mt-3">
-            <PrologueCard title={prologue.chapterTitle} coverImg={story1} story={prologue.story} />
+            {prologue.storyQuestId !== undefined && <PrologueCard title={prologue.chapterTitle} coverImg={story1} story={prologue.story} />}
+            
             {storyQuests.map((quest, index) => {
-                return <QuestDetailsCard key={index} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
+                return <QuestDetailsCard key={index} questId={quest.storyQuestId} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
             })}
-            <QuestDetailsCard chapterTitle={epilogue.chapterTitle} taskTitle={epilogue.taskTitle} description={epilogue.description} edventurePoints={epilogue.edventurePoints} guildPoints={epilogue.guildPoints} chapter="epilogue" coverImg={chapter1} />
+
+            {epilogue.storyQuestId !== undefined && <QuestDetailsCard chapterTitle={epilogue.chapterTitle} taskTitle={epilogue.taskTitle} description={epilogue.description} edventurePoints={epilogue.edventurePoints} guildPoints={epilogue.guildPoints} chapter="epilogue" coverImg={chapter1} />}
         </div>
     </div >
 }
