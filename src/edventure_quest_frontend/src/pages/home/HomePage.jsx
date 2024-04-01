@@ -13,17 +13,21 @@ export default function HomePage({ }) {
             route: "/guild-hall"
         },
         {
-            name: "Carrot's Tavern",
-            route: "/marketplace"
-        },
-        {
             name: "Quests",
             route: "/quests"
+        },
+        {
+            name: "Carrot's Tavern",
+            route: "/shop"
+        },
+        {
+            name: "My Companions",
+            route: "/my-companions"
         }
     ]
 
-    return <Box sx={{ display: "grid", gridTemplateColumns: "1fr 2fr 1fr", gap: "1.5rem", width: "100%" }}>
-        <div className="w-full flex flex-col gap-4">
+    return <Box component="div" sx={{ display: "grid", gridTemplateColumns: "1fr 2fr 1fr", gap: "2rem", width: "100%", position: "relative" }}>
+        <div className="w-full h-fit flex flex-col gap-4 sticky top-5">
             <ProfileCard />
             <Divider sx={{ backgroundColor: colors.primary, my: "1rem" }} />
 
@@ -36,6 +40,8 @@ export default function HomePage({ }) {
         <MainPanel>
             <Outlet />
         </MainPanel>
-        <GuildBulletin />
+        <div className="w-full h-fit flex flex-col gap-4 sticky top-5">
+            <GuildBulletin />
+        </div>
     </Box>
 }

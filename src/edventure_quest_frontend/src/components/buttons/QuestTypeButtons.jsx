@@ -19,14 +19,14 @@ export default function QuestTypeButtons({ }) {
         },
         {
             name: "guild ventures",
-            route: "/guild-ventures"
+            route: "/quests/guild-ventures"
         },
         {
             name: "guild conquests",
-            route: "/guild-conquests"
+            route: "/quests/guild-conquests"
         }
     ]
-    return <div className="card-theme-neutral flex items-center justify-between gap-2">
+    return <div className="card-theme-neutral flex items-center justify-between gap-2 h-fit absolute bottom-0">
         {/* {buttons.map(btn => {
             return <Button key={btn.name} size="small" variant="contained" sx={{ flexGrow: 1 }}>{btn.name}</Button>
         })} */}

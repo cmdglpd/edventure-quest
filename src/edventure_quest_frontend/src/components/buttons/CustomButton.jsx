@@ -8,5 +8,5 @@ export default function CustomButton({ name, route }) {
         return navigate(route)
     }
 
-    return <Button onClick={() => redirect(route)} color="brown" className="card-theme-neutral" variant="contained" size="small" sx={{ flexGrow: 1, borderRadius: "10px", fontWeight: "bold", width: "100%", color: colors.tertiary }}>{name}</Button>
+    return <Button onClick={() => redirect(route)} color="brown" className="card-theme-neutral kavoon-font" variant="contained" size="small" sx={{ flexGrow: 1, borderRadius: "10px", fontWeight: "bold", width: "100%", color: colors.tertiary }}>{name}</Button>
 }

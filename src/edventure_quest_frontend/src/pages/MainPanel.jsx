@@ -1,7 +1,5 @@
-import { Outlet } from "react-router-dom"
-
 export default function MainPanel({ children }) {
-    return <div>
+    return <div className="relative">
         {children}
     </div>
 }

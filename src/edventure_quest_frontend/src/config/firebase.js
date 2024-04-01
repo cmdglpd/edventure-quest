@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   //PRODUCTION
   // apiKey: "AIzaSyAqs2B_DD5EG5u8gcYxDDwM21MWwLPTerE",
@@ -16,13 +16,12 @@ const firebaseConfig = {
   // appId: "1:184026671523:web:65c5097f62701d3fad1216"
 
   //DEVELOPMENT
-  apiKey: "AIzaSyDW_tj-3sAYhMxGZIkrHJ7_LNjMoh6kw6I",
-  authDomain: "uppinion-dev.firebaseapp.com",
-  projectId: "uppinion-dev",
-  storageBucket: "uppinion-dev.appspot.com",
-  messagingSenderId: "4753600509",
-  appId: "1:4753600509:web:d4c8fd307c120056f47394",
-  measurementId: "G-4F4SEB0G7Q",
+  apiKey: "AIzaSyBV9dIUsz_TlzERG-I-4T68ocNl7AIqtRg",
+  authDomain: "edventure-quest.firebaseapp.com",
+  projectId: "edventure-quest",
+  storageBucket: "edventure-quest.appspot.com",
+  messagingSenderId: "120040803625",
+  appId: "1:120040803625:web:73f4541db5e6ee03ec3b38"
 };
 
 // Initialize Firebase

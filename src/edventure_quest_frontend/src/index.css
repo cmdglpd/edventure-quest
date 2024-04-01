@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Kavoon&display=swap);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,6 +23,39 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: #DCB98A;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #3E2713;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: 0.25s;
+}
+
+.custom-file-upload:hover{
+  background-color: #C89F71;
+}
+
+.kavoon-font{
+  font-family: "Kavoon", serif !important;
+  font-weight: 200 !important;
+  font-style: normal !important;
+}
+
+.MuiDialog-paper{
+  background-color: #E8CFA6 !important;
+  border: 4px solid #3E2713;
+  border-radius: 10px !important;
 }
 
 .card-theme-neutral,
@@ -65,6 +99,310 @@
   background-image: linear-gradient(to bottom, #B68962, #503C2B);
   padding: 10px;
 }
+
+.container{
+  width: 100%;
+  height: 150px;
+  padding: 1rem 0 0.5rem 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-image: url(./assets/characters/forestBg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* #KNIGHT################################# */
+.character-knight-idle,
+.character-knight-run,
+.character-knight-attack,
+.character-knight-jump,
+.character-knight-jump-attack,
+.character-knight-walk {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.character-knight-idle {
+  background: url(./assets/characters/knight/idle-sprite.png);
+  width: 100px;
+  height: 120.63px;
+  animation: knight-idle 1s steps(10) infinite;
+}
+
+.character-knight-run {
+  background: url(./assets/characters/knight/run-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: knight-run 1s steps(10) infinite;
+}
+
+.character-knight-attack {
+  background: url(./assets/characters/knight/attack-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: knight-attack 0.5s steps(10) infinite;
+}
+
+.character-knight-jump {
+  background: url(./assets/characters/knight/jump-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: knight-jump 0.5s steps(10) infinite;
+}
+
+.character-knight-jump-attack {
+  background: url(./assets/characters/knight/jump-attack-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: knight-jump-attack 1s steps(10) infinite;
+}
+
+.character-knight-walk {
+  background: url(./assets/characters/knight/walk-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: knight-walk 1s steps(10) infinite;
+}
+
+@keyframes knight-idle {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/idle-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes knight-run {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/run-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes knight-jump {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/jump-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes knight-attack {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/attack-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes knight-jump-attack {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/jump-attack-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes knight-walk {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/knight/walk-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+/* ################################## */
+
+/* #NINJA################################# */
+.character-ninja-idle,
+.character-ninja-run,
+.character-ninja-attack,
+.character-ninja-slide,
+.character-ninja-jump,
+.character-ninja-throw,
+.character-ninja-jump-attack,
+.character-ninja-jump-throw {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.character-ninja-idle {
+  background: url(./assets/characters/ninja/idle-sprite.png);
+  width: 56.55px;
+  height: 107px;
+  animation: ninja-idle 1s steps(10) infinite;
+}
+
+.character-ninja-run {
+  background: url(./assets/characters/ninja/run-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: ninja-run 1s steps(10) infinite;
+}
+
+.character-ninja-attack {
+  background: url(./assets/characters/ninja/attack-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: ninja-attack 0.5s steps(10) infinite;
+}
+
+.character-ninja-jump {
+  background: url(./assets/characters/ninja/jump-sprite.png);
+  width: 89.94px;
+  height: 120px;
+  animation: ninja-jump 0.5s steps(10) infinite;
+}
+
+.character-ninja-throw {
+  background: url(./assets/characters/ninja/jump-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: ninja-throw 1s steps(10) infinite;
+}
+
+.character-ninja-slide {
+  background: url(./assets/characters/ninja/jump-sprite.png);
+  width: 100px;
+  height: 120.44px;
+  animation: ninja-slide 1s steps(10) infinite;
+}
+
+.character-ninja-jump-attack {
+  background: url(./assets/characters/ninja/jump-attack-sprite.png);
+  width: 125.52px;
+  height: 130px;
+  animation: ninja-jump-attack 1s steps(10) infinite;
+}
+
+.character-ninja-jump-throw {
+  background: url(./assets/characters/ninja/jump-throw-sprite.png);
+  width: 87.7px;
+  height: 105px;
+  animation: ninja-jump-throw 1s steps(10) infinite;
+}
+
+@keyframes ninja-idle {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/idle-sprite.png);
+    background-position: -569.55px 0;
+  }
+}
+
+@keyframes ninja-run {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/run-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes ninja-jump {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/jump-sprite.png);
+    background-position: -899.38px 0;
+  }
+}
+
+@keyframes ninja-attack {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/attack-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes ninja-jump-attack {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/jump-attack-sprite.png);
+    background-position: -1255.17px 0;
+  }
+}
+
+@keyframes ninja-jump-throw {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/jump-throw-sprite.png);
+    background-position: -877.03px 0;
+  }
+}
+
+@keyframes ninja-slide {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/slide-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes ninja-throw {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background: url(./assets/characters/ninja/throw-sprite.png);
+    background-position: -1000px 0;
+  }
+}
+
+
+/* ################################## */
 
 
 /* scrollbar */
