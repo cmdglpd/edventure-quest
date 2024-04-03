@@ -18,7 +18,7 @@ export default function ServicesPage({ }) {
     }
 
     return <div className="w-full flex flex-col gap-4">
-        <ShopHeader title={header.title} type={header.type} description={header.description} edventurePoints={header.edventurePoints} />
+        <ShopHeader title={header.title} type={header.type} description={header.description} edventurePoints={header.edventurePoints} headerBtnLabel="Add New Service" />
 
         <div className="w-full flex flex-col gap-2 mt-1">
             {services.map((service, index) => {

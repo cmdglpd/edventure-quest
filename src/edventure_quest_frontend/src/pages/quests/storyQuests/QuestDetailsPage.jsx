@@ -7,6 +7,7 @@ import { useContext } from "react"
 import { UserContext } from "../../../providers/UserProvider"
 import { useStoryQuests } from "../../../hooks/useStoryQuests"
 import { useParams } from "react-router-dom"
+import StoryCard from "../../../components/questCards/storyQuests/StoryCard"
 
 export default function QuestDetailsPage({ }) {
     const currentUser = useContext(UserContext)
@@ -24,7 +25,9 @@ export default function QuestDetailsPage({ }) {
             {prologue.storyQuestId !== undefined && <PrologueCard title={prologue.chapterTitle} coverImg={story1} story={prologue.story} />}
             
             {storyQuests.map((quest, index) => {
-                return <QuestDetailsCard key={index} questId={quest.storyQuestId} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
+                return currentUser?.completedQuests.includes(quest.storyQuestId) ?
+                <StoryCard key={index} title={quest.chapterTitle} chapter={quest.chapter} coverImg={quest.coverImage} story={quest.story} /> : 
+                <QuestDetailsCard key={index} questId={quest.storyQuestId} questType={quest.questType} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
             })}
 
             {epilogue.storyQuestId !== undefined && <QuestDetailsCard chapterTitle={epilogue.chapterTitle} taskTitle={epilogue.taskTitle} description={epilogue.description} edventurePoints={epilogue.edventurePoints} guildPoints={epilogue.guildPoints} chapter="epilogue" coverImg={chapter1} />}

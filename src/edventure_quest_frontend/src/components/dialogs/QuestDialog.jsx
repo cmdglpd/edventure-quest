@@ -13,15 +13,47 @@ import {
 } from "@mui/material";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import colors from "../../utils/colors";
-import {useState} from "react"
+import { useContext, useState } from "react"
+import { uploadFile } from "../../utils/storage";
+import { UserContext } from "../../providers/UserProvider"
+import { useNewSubmission } from "../../hooks/useNewSubmission";
 
-export default function QuestDialog({ open, handleClose, title, description, edventurePoints, guildPoints }) {
+export default function QuestDialog({ open, handleClose, questId, questType, title, description, edventurePoints, guildPoints }) {
   const loading = false
   const [selectedFile, setSelectedFile] = useState({})
+  const currentUser = useContext(UserContext)
 
   const handleSetSelectedFile = (item) => {
-    console.log(item.target.files[0].name);
     setSelectedFile(item.target.files[0])
+  }
+
+  const submitQuestFile = async () => {
+    let uploadedFile = ""
+
+    try {
+      // Awaits the URL returned by the uploadFile function
+      uploadedFile = await uploadFile(selectedFile, selectedFile.name)
+
+      const { submissionId, success, message } = await useNewSubmission({
+        date: "",
+        fileURL: uploadedFile,
+        fileName: selectedFile.name,
+        questType: questType,
+        questId: questId,
+        userId: currentUser.userId,
+        username: currentUser?.username
+      })
+
+      if (!success) {
+        // If success is false, throw a new Error with the message from the response, or a default message
+        throw new Error(message || 'Submission failed for an unknown reason.');
+      }
+
+      handleClose()
+    } catch (error) {
+      console.log("Error uploading file");
+      return; // Stop execution if file upload fails
+    }
   }
 
   return (
@@ -40,12 +72,14 @@ export default function QuestDialog({ open, handleClose, title, description, edv
           <DialogActions sx={{ px: 0, pb: 0, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <Typography variant="body2" sx={{ color: colors.tertiary }}>Selected file: {selectedFile?.name}</Typography>
 
-            <form action="">
+            <form action="" className="flex items-center gap-2">
               <label htmlFor="file-upload" className="custom-file-upload">
                 UPLOAD FILE
               </label>
               <input id="file-upload" type="file" onChange={(e) => handleSetSelectedFile(e)} />
+              <Button onClick={submitQuestFile} size="small" variant="contained" color="brownLight" sx={{ fontWeight: "bold", color: colors.tertiary, borderRadius: "10px" }}>Submit</Button>
             </form>
+
           </DialogActions>
         </DialogContent>
       </Dialog>

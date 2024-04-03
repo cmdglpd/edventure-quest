@@ -39,11 +39,11 @@ export const useStoryQuests = (storyId, userId) => {
                     querySnapshot.forEach((doc) => {
                         // doc.data() is never undefined for query doc snapshots
                         if (doc.data().chapter === 0) {
-                            setPrologue({ storyQuestId: doc.id, ...doc.data() })
-                        }else if(doc.data().chapter === -1){
-                            setEpilogue({ storyQuestId: doc.id, ...doc.data() })
+                            setPrologue({ storyQuestId: doc.id, questType: "story quest", ...doc.data() })
+                        } else if (doc.data().chapter === -1) {
+                            setEpilogue({ storyQuestId: doc.id, questType: "story quest", ...doc.data() })
                         } else {
-                            storyQuestsArr.push({ storyQuestId: doc.id, ...doc.data() });
+                            storyQuestsArr.push({ storyQuestId: doc.id, questType: "story quest", ...doc.data() });
                         }
                     });
                     storyQuestsArr.sort((a, b) => a.chapter - b.chapter)

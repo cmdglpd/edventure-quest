@@ -5,7 +5,7 @@ import { useContext, useState } from "react"
 import { UserContext } from "../../../providers/UserProvider"
 import { useNavigate, useParams } from "react-router-dom"
 
-export default function QuestDetailsCard({ questId, chapterTitle, taskTitle, description, edventurePoints, guildPoints, coverImg, chapter }) {
+export default function QuestDetailsCard({ questId, questType, chapterTitle, taskTitle, description, edventurePoints, guildPoints, coverImg, chapter }) {
     const { storyId } = useParams()
     const currentUser = useContext(UserContext)
     const navigate = useNavigate()
@@ -33,7 +33,7 @@ export default function QuestDetailsCard({ questId, chapterTitle, taskTitle, des
     const [open, setOpen] = useState(false)
 
     return <>
-        <QuestDialog open={open} handleClose={() => setOpen(false)} title={taskTitle} description={description} edventurePoints={edventurePoints} guildPoints={guildPoints} />
+        <QuestDialog open={open} handleClose={() => setOpen(false)} questId={questId} questType={questType} title={taskTitle} description={description} edventurePoints={edventurePoints} guildPoints={guildPoints} />
 
         <div className="card-theme-light flex gap-4">
             <div className="w-[10rem]">
