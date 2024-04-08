@@ -7,7 +7,7 @@ export const useSubmissionStatus = async (submissionId, userId, questId, status)
         const userRef = doc(db, "users", userId)
 
         switch (status?.toLowerCase()) {
-            case "accept":
+            case "accepted":
                 await updateDoc(submissionRef, {
                     status: "Accepted",
                 });
@@ -16,7 +16,7 @@ export const useSubmissionStatus = async (submissionId, userId, questId, status)
                 });
                 break;
 
-            case "reject":
+            case "rejected":
                 await updateDoc(submissionRef, {
                     status: "Rejected",
                 });

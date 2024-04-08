@@ -21,7 +21,7 @@ export default function SubmissionsPage({ }) {
         </div>
 
         <div className="w-full flex flex-col gap-4 mt-3">
-            {submissions.map(submission => <SubmissionCard key={submission.submissionId} submissionId={submission.submissionId} questId={submission.questId} status={submission.status} name={submission.username} url={submission.fileURL} />)}
+            {submissions.map(submission => <SubmissionCard key={submission.submissionId} submissionId={submission.submissionId} questDetails={storyQuest} status={submission.status} name={submission.username} url={submission.fileURL} />)}
         </div>
     </div>
 }

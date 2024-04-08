@@ -3,33 +3,59 @@ import colors from "../../../utils/colors"
 import { useContext, useEffect, useState } from "react"
 import { useSubmissionStatus } from "../../../hooks/useSubmissionStatus"
 import { UserContext } from "../../../providers/UserProvider"
+import { useReward } from "../../../hooks/useReward"
 
-export default function SubmissionCard({ name, url, status, questId, submissionId }) {
+export default function SubmissionCard({ name, url, status, questDetails, submissionId }) {
     const [open, setOpen] = useState(false)
     const currentUser = useContext(UserContext)
     const [submissionStatus, setSubmissionStatus] = useState(null)
+    const [currentUserPoints, setCurrentUserPoints] = useState({})
+    const [questRewards, setQuestRewards] = useState({})
 
     useEffect(() => {
         setSubmissionStatus(status)
     }, [status])
 
-    const acceptSubmission = () => {
-        const { error } = useSubmissionStatus(submissionId, currentUser.userId, questId, "accept")
+    useEffect(() => {
+        setCurrentUserPoints({
+            edventurePoints: currentUser.edventurePoints,
+            expPoints: currentUser.expPoints
+        })
+    }, [currentUser])
 
-        if (!error) {
-            setSubmissionStatus("Accepted")
+    useEffect(() => {
+        setQuestRewards({
+            edventurePoints: questDetails.edventurePoints,
+            guildPoints: questDetails.guildPoints,
+            expPoints: questDetails.expPoints
+        })
+    }, [questDetails])
+
+    const updateSubmissionStatus = async (newStatus) => {
+        if (submissionStatus !== newStatus) {
+            const { error: rewardError } = await useReward(
+                currentUser.userId,
+                currentUser.guildId,
+                newStatus,
+                submissionStatus,
+                currentUserPoints,
+                questRewards)
+
+            if (!rewardError) {
+                const { error } = await useSubmissionStatus(
+                    submissionId,
+                    currentUser.userId,
+                    questDetails?.storyQuestId,
+                    newStatus)
+
+                if (!error) {
+                    setSubmissionStatus(newStatus)
+                }
+            }
+
+            setOpen(false)
         }
-
-        setOpen(false)
-    }
-
-    const rejectSubmission = () => {
-        const { error } = useSubmissionStatus(submissionId, currentUser.userId, questId, "reject")
-        if (!error) {
-            setSubmissionStatus("Rejected")
-        }
-
-        setOpen(false)
+        return
     }
 
     return <div className="card-theme-light w-full">
@@ -54,8 +80,8 @@ export default function SubmissionCard({ name, url, status, questId, submissionI
                 <Divider sx={{ backgroundColor: colors.secondary }} />
 
                 <div className="w-full flex gap-2 mt-2">
-                    <Button onClick={rejectSubmission} fullWidth variant="outlined" size="small" color="brownDark" sx={{ fontWeight: "bold", color: colors.tertiary }}>Reject</Button>
-                    <Button onClick={acceptSubmission} fullWidth variant="contained" size="small" color="brownLight" sx={{ fontWeight: "bold", color: colors.tertiary }}>Accept</Button>
+                    <Button onClick={() => updateSubmissionStatus("Rejected")} fullWidth variant="outlined" size="small" color="brownDark" sx={{ fontWeight: "bold", color: colors.tertiary }}>Reject</Button>
+                    <Button onClick={() => updateSubmissionStatus("Accepted")} fullWidth variant="contained" size="small" color="brownLight" sx={{ fontWeight: "bold", color: colors.tertiary }}>Accept</Button>
                 </div>
             </>
         }

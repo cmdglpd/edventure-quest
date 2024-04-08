@@ -26,8 +26,8 @@ export default function QuestDetailsPage({ }) {
             
             {storyQuests.map((quest, index) => {
                 return currentUser?.completedQuests.includes(quest.storyQuestId) ?
-                <StoryCard key={index} title={quest.chapterTitle} chapter={quest.chapter} coverImg={quest.coverImage} story={quest.story} /> : 
-                <QuestDetailsCard key={index} questId={quest.storyQuestId} questType={quest.questType} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
+                <StoryCard key={index} title={quest.chapterTitle} chapter={quest.chapter} coverImg={quest.coverImage} story={quest.story} />
+                : <QuestDetailsCard key={index} questId={quest.storyQuestId} questType={quest.questType} chapterTitle={quest.chapterTitle} taskTitle={quest.taskTitle} description={quest.description} edventurePoints={quest.edventurePoints} guildPoints={quest.guildPoints} chapter={quest.chapter} coverImg={chapter1} />
             })}
 
             {epilogue.storyQuestId !== undefined && <QuestDetailsCard chapterTitle={epilogue.chapterTitle} taskTitle={epilogue.taskTitle} description={epilogue.description} edventurePoints={epilogue.edventurePoints} guildPoints={epilogue.guildPoints} chapter="epilogue" coverImg={chapter1} />}

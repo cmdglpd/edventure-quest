@@ -42,10 +42,10 @@ export default function ProfileCard({ }) {
                     <Typography className="kavoon-font" variant="body1" sx={{ fontWeight: "bold", color: colors.tertiary }}>{currentUser?.username}</Typography>
                 </div>
                 <div className="mt-2">
-                    <LinearProgress color="brownDark" variant="determinate" value={30} sx={{ borderRadius: "50px", backgroundColor: colors.primary, height: "5px", color: colors.tertiary }} />
+                    <LinearProgress color="brownDark" variant="determinate" value={(currentUser?.expPoints/1500)*100} sx={{ borderRadius: "50px", backgroundColor: colors.primary, height: "5px", color: colors.tertiary }} />
                     <div className="flex justify-between">
                         <Typography variant="caption" sx={{ fontWeight: "bold", color: colors.tertiary }}>Lv. 7</Typography>
-                        <Typography variant="caption" sx={{ fontWeight: "bold", color: colors.tertiary }}>500/1500 XP</Typography>
+                        <Typography variant="caption" sx={{ fontWeight: "bold", color: colors.tertiary }}>{`${currentUser?.expPoints !== undefined ? currentUser.expPoints : 0}/1500 XP`}</Typography>
                     </div>
                 </div>
             </div>

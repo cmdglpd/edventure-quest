@@ -10,7 +10,7 @@ export default function ProductCard({ name, edventurePoints, productImg, descrip
 
         <div className="card-theme-light flex gap-4">
         <div className="w-[10rem]">
-                <img src={productImg} alt="service image" style={{ width: "100%", height: "6rem", objectFit: "cover", objectPosition: "center", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }} />
+                <img src={productImg} alt="item image" style={{ width: "100%", height: "6rem", objectFit: "cover", objectPosition: "center", borderRadius: "10px", border: `4px solid ${colors.secondary}`, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.5)" }} />
             </div>
 
             <div className="w-full flex flex-col gap-2">

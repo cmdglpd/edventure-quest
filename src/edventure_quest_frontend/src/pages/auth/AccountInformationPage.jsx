@@ -106,6 +106,8 @@ export default function AccountInformationPage({ }) {
                     completedQuests: [],
                     posts: [],
                     purchasedItems: [],
+                    edventurePoints: 0,
+                    expPoints: 0
                 });
 
                 setSuccess(true);
